@@ -3,6 +3,7 @@
 # Edit at https://www.gitignore.io/?templates=node,typings,visualstudiocode
 ## typescript compilation 
 /lib
+/dist
 ### Node ###
 # Logs
 logs
