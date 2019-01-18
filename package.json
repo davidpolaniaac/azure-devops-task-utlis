@@ -1,0 +1,48 @@
+{
+  "name": "azure-devops-task-utils",
+  "version": "1.0.2",
+  "description": "Library to create tasks of azure devops",
+  "main": "index.js",
+  "scripts": {
+    "test": " echo test run ",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidpolaniaac/azure-devops-task-utlis.git"
+  },
+  "keywords": [
+    "azure",
+    "devops",
+    "tasks",
+    "utlis"
+  ],
+  "author": "David Polania",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidpolaniaac/azure-devops-task-utlis/issues"
+  },
+  "homepage": "https://github.com/davidpolaniaac/azure-devops-task-utlis.git#readme",
+  "dependencies": {
+    "azure-devops-node-api": "^7.0.0",
+    "azure-pipelines-task-lib": "^2.7.7"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.12",
+    "@types/node": "^10.12.12",
+    "@types/q": "^1.5.1",
+    "jest": "^23.6.0",
+    "prettier": "^1.15.3",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.17.0",
+    "typescript": "^3.2.4"
+  }
+}
