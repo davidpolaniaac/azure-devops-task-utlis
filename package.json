@@ -1,9 +1,9 @@
 {
   "name": "azure-devops-task-utils",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Library to create tasks of azure devops",
   "main": "dist/index.js",
-  "types" : "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": " echo test run ",
     "build": "tsc",
