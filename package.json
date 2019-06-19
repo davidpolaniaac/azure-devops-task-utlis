@@ -1,6 +1,6 @@
 {
   "name": "azure-devops-task-utils",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "Library to create tasks of azure devops",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -32,18 +32,18 @@
   },
   "homepage": "https://github.com/davidpolaniaac/azure-devops-task-utlis.git#readme",
   "dependencies": {
-    "azure-devops-node-api": "^7.0.0",
-    "azure-pipelines-task-lib": "^2.7.7"
+    "azure-devops-node-api": "^7.2.0",
+    "azure-pipelines-task-lib": "^2.8.0"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.12",
-    "@types/node": "^10.12.12",
-    "@types/q": "^1.5.1",
+    "@types/jest": "^23.3.14",
+    "@types/node": "^10.14.9",
+    "@types/q": "^1.5.2",
     "jest": "^23.6.0",
-    "prettier": "^1.15.3",
+    "prettier": "^1.18.2",
     "ts-jest": "^23.10.5",
-    "tslint": "^5.12.1",
-    "tslint-config-prettier": "^1.17.0",
-    "typescript": "^3.2.4"
+    "tslint": "^5.17.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.5.2"
   }
 }
