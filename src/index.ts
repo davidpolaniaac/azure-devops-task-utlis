@@ -1,6 +1,8 @@
 import * as vm from 'azure-devops-node-api';
 import * as lim from 'azure-devops-node-api/interfaces/LocationsInterfaces';
-import tl = require('azure-pipelines-task-lib/task');
+import * as ReleaseInterfaces from 'azure-devops-node-api/interfaces/ReleaseInterfaces';
+import * as ReleaseApi from 'azure-devops-node-api/ReleaseApi';
+import * as tl from 'azure-pipelines-task-lib/task';
 
 function getEnv(name: string): string {
   const val = tl.getVariable(name);
@@ -59,4 +61,39 @@ export function banner(title: string): void {
 export function heading(title: string): void {
   console.log();
   console.log('> ' + title);
+}
+
+
+export async function setReleaseVariable(releaseId: number, variableName: string, variableValue: string, allowOverride: boolean = true, isSecret: boolean = false): Promise<ReleaseInterfaces.Release> {
+
+  return new Promise<ReleaseInterfaces.Release>(async (resolve, reject) => {
+
+    try {
+
+      const webApi: vm.WebApi = await getWebApi();
+      const releaseApi: ReleaseApi.IReleaseApi = await webApi.getReleaseApi();
+      const project: string = getProject();
+
+      tl.setVariable(variableName, variableValue);
+
+      const release: ReleaseInterfaces.Release = await releaseApi.getRelease(project, releaseId);
+
+      const variableConfiguration: ReleaseInterfaces.ConfigurationVariableValue = {
+        allowOverride,
+        isSecret,
+        value: variableValue
+      }
+
+      if (release.variables) {
+        release.variables[variableName] = variableConfiguration;
+        const newRelease: ReleaseInterfaces.Release = await releaseApi.updateRelease(release, project, Number(releaseId));
+        resolve(newRelease);
+      } else {
+        reject(new Error('Variables is undefined'));
+      }
+    } catch (error) {
+      reject(error);
+    }
+  });
+
 }
