@@ -1,6 +1,6 @@
 {
   "name": "azure-devops-task-utils",
-  "version": "1.0.14",
+  "version": "2.0.0",
   "description": "Library to create tasks of azure devops",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/davidpolaniaac/azure-devops-task-utlis.git"
+    "url": "https://github.com/davidpolaniaac/azure-devops-task-utils.git"
   },
   "keywords": [
     "azure",
@@ -28,12 +28,12 @@
   "author": "David Polania",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/davidpolaniaac/azure-devops-task-utlis/issues"
+    "url": "https://github.com/davidpolaniaac/azure-devops-task-utils/issues"
   },
-  "homepage": "https://github.com/davidpolaniaac/azure-devops-task-utlis.git#readme",
+  "homepage": "https://github.com/davidpolaniaac/azure-devops-task-utils.git#readme",
   "dependencies": {
-    "azure-devops-node-api": "^9.0.1",
-    "azure-pipelines-task-lib": "^2.8.0"
+    "azure-devops-node-api": "^10.1.1",
+    "azure-pipelines-task-lib": "^2.9.3"
   },
   "devDependencies": {
     "@types/jest": "^23.3.14",

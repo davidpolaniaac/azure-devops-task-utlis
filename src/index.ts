@@ -5,7 +5,7 @@ import * as ReleaseApi from 'azure-devops-node-api/ReleaseApi';
 import * as tl from 'azure-pipelines-task-lib/task';
 
 function getEnv(name: string): string {
-  const val = tl.getVariable(name);
+  const val = tl.getVariable(name) as string;
   if (!val) {
     console.error(name + ' env var not set');
     name.includes('SYSTEM_ACCESSTOKEN')
