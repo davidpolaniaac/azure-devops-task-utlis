@@ -63,13 +63,15 @@ export function heading(title: string): void {
   console.log('> ' + title);
 }
 
-
-export async function setReleaseVariable(releaseId: number, variableName: string, variableValue: string, allowOverride: boolean = true, isSecret: boolean = false): Promise<ReleaseInterfaces.Release> {
-
+export async function setReleaseVariable(
+  releaseId: number,
+  variableName: string,
+  variableValue: string,
+  allowOverride: boolean = true,
+  isSecret: boolean = false,
+): Promise<ReleaseInterfaces.Release> {
   return new Promise<ReleaseInterfaces.Release>(async (resolve, reject) => {
-
     try {
-
       const webApi: vm.WebApi = await getWebApi();
       const releaseApi: ReleaseApi.IReleaseApi = await webApi.getReleaseApi();
       const project: string = getProject();
@@ -81,12 +83,16 @@ export async function setReleaseVariable(releaseId: number, variableName: string
       const variableConfiguration: ReleaseInterfaces.ConfigurationVariableValue = {
         allowOverride,
         isSecret,
-        value: variableValue
-      }
+        value: variableValue,
+      };
 
       if (release.variables) {
         release.variables[variableName] = variableConfiguration;
-        const newRelease: ReleaseInterfaces.Release = await releaseApi.updateRelease(release, project, Number(releaseId));
+        const newRelease: ReleaseInterfaces.Release = await releaseApi.updateRelease(
+          release,
+          project,
+          Number(releaseId),
+        );
         resolve(newRelease);
       } else {
         reject(new Error('Variables is undefined'));
@@ -95,5 +101,4 @@ export async function setReleaseVariable(releaseId: number, variableName: string
       reject(error);
     }
   });
-
 }
